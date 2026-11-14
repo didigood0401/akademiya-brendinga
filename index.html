@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Академия экспертного брендинга</title>
+<meta name="description" content="Академия экспертного брендинга: позиционирование, упаковка, контент и медийность для экспертов.">
+<meta name="theme-color" content="#f4efe6">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4efe6;--paper2:#ebe4d6;--ink:#141210;--mut:#6f685d;--line:rgba(20,18,16,.12);--ac:#2f3bff;--ac2:#ff6b3d;--lil:#d9d4ff;
+--eo:cubic-bezier(0,0,.2,1);--eq:cubic-bezier(.165,.84,.44,1);--es:cubic-bezier(.35,0,0,1);--eui:cubic-bezier(.4,0,.2,1);
+--se:'Fraunces',Georgia,serif;--sa:'Inter Tight',system-ui,sans-serif;--mono:'JetBrains Mono',monospace;--m:clamp(16px,4vw,56px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--sa);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--ac);color:#fff}
+.w{max-width:1440px;margin:0 auto;padding:0 var(--m)}
+.mono{font:500 11.5px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.k{color:var(--ac)}
+.h2{font:300 clamp(40px,5.6vw,92px)/.98 var(--se);letter-spacing:-.03em}
+.h2 em{font-style:italic;font-weight:500;color:var(--ac)}
+.btn{display:inline-flex;align-items:center;gap:12px;height:54px;padding:0 26px;border-radius:999px;font:600 15px var(--sa);white-space:nowrap;transition:background-color .25s var(--eui),color .25s,transform .4s var(--eq)}
+.btn:hover{transform:translateY(-2px)}
+.btn.a{background:var(--ink);color:var(--paper)}.btn.a:hover{background:var(--ac)}
+.btn.o{box-shadow:inset 0 0 0 1px var(--ink)}.btn.o:hover{background:var(--ink);color:var(--paper)}
+.btn .ar{transition:transform .4s var(--eq)}.btn:hover .ar{transform:translateX(4px)}
+
+/* header */
+.hd{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:50;width:min(1100px,calc(100% - 24px));transition:transform .6s var(--eq)}
+.hd.hide{transform:translate(-50%,-140%)}
+.hd .in{display:flex;align-items:center;gap:20px;height:60px;padding:0 8px 0 22px;border-radius:999px;background:rgba(244,239,230,.7);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);box-shadow:inset 0 0 0 1px var(--line),0 20px 40px -30px rgba(20,18,16,.4)}
+.logo{font:500 18px var(--se);letter-spacing:-.02em;white-space:nowrap}.logo i{font-style:italic;color:var(--ac)}
+.hd nav{display:flex;gap:2px;margin-left:auto}
+.hd nav a{padding:8px 14px;border-radius:999px;font-size:14px;font-weight:500;transition:background-color .2s}
+.hd nav a:hover{background:rgba(20,18,16,.06)}
+.hd .btn{height:44px;padding:0 18px;font-size:14px}
+
+/* hero */
+.hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center;padding:110px var(--m) 50px;max-width:1440px;margin:0 auto}
+.hero h1{font:300 clamp(48px,7.4vw,128px)/.92 var(--se);letter-spacing:-.04em}
+.hero h1 em{font-style:italic;font-weight:500}
+.hero h1 .sw{display:inline-block;color:var(--ac);position:relative}
+.hero h1 .sw:after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.08em;background:var(--ac2);transform-origin:left;transform:scaleX(0);transition:transform 1.2s var(--es) 1s}
+.ready .hero h1 .sw:after{transform:none}
+.ln{display:block;overflow:hidden;padding-bottom:.04em}.ln>span{display:block;transform:translateY(105%);transition:transform 1.2s var(--es)}
+.ready .ln>span{transform:none}.ln:nth-child(2)>span{transition-delay:.1s}.ln:nth-child(3)>span{transition-delay:.2s}
+.hero p{max-width:44ch;color:#3e3a33;font-size:clamp(16px,1.3vw,19px);margin-top:26px}
+.hacts{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.fd{opacity:0;transform:translateY(20px);transition:opacity 1.2s var(--eo) .5s,transform 1.2s var(--eo) .5s}
+.ready .fd{opacity:1;transform:none}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px;border-top:1px solid var(--line)}
+.stats div{padding:16px 16px 0 0}
+.stats b{display:block;font:500 clamp(26px,2.6vw,40px)/1 var(--se);letter-spacing:-.03em}
+.stats span{color:var(--mut);font-size:13px}
+
+/* magazine cover */
+.stage{perspective:1400px;justify-self:center;width:min(460px,100%)}
+.cover{position:relative;aspect-ratio:.76;border-radius:6px;background:var(--ac);transform-style:preserve-3d;transform:rotateY(var(--ry,-14deg)) rotateX(var(--rx,6deg));transition:transform .8s var(--eq);box-shadow:0 60px 90px -40px rgba(20,18,16,.55),0 0 0 1px rgba(0,0,0,.05);overflow:hidden}
+.cover>*{position:absolute}
+.cv-bg{inset:0;background:radial-gradient(70% 55% at 50% 60%,#5561ff,transparent 70%),linear-gradient(180deg,#2f3bff,#1b23b8)}
+.cv-por{left:12%;right:12%;top:26%;aspect-ratio:1;border-radius:50%;transform:translateZ(30px);background:radial-gradient(circle,rgba(244,239,230,.9) 1.4px,transparent 1.6px) 0 0/9px 9px;-webkit-mask:radial-gradient(circle at 40% 35%,#000 20%,rgba(0,0,0,.25) 70%);mask:radial-gradient(circle at 40% 35%,#000 20%,rgba(0,0,0,.25) 70%)}
+.cv-mono{left:0;right:0;top:41%;transform:translateZ(45px);text-align:center;font:300 italic clamp(96px,11vw,160px)/1 var(--se);color:var(--ac2);letter-spacing:-.06em;mix-blend-mode:screen}
+.cv-mast{left:6%;right:6%;top:4%;transform:translateZ(14px);font:700 clamp(44px,5.4vw,80px)/.85 var(--se);letter-spacing:-.05em;color:var(--paper);text-align:center}
+.cv-mast small{display:flex;justify-content:space-between;font:500 9px var(--mono);letter-spacing:.14em;margin-bottom:6px;color:rgba(244,239,230,.8)}
+.cv-l{transform:translateZ(60px);color:var(--paper);font:500 15px/1.15 var(--se);max-width:42%}
+.cv-l b{display:block;font:500 11px var(--mono);letter-spacing:.1em;color:var(--ac2);margin-bottom:4px;text-transform:uppercase}
+.cv-l.l1{left:6%;top:27%}.cv-l.l2{right:6%;top:27%;text-align:right}.cv-l.l3{left:6%;bottom:16%}
+.cv-name{left:6%;right:6%;bottom:4%;transform:translateZ(80px);font:italic 500 clamp(26px,3vw,40px)/1 var(--se);color:var(--paper)}
+.cv-st{right:5%;top:56%;transform:translateZ(110px) rotate(12deg);width:86px;height:86px;border-radius:50%;background:var(--ac2);color:#fff;display:grid;place-items:center;text-align:center;font:700 13px/1.05 var(--sa);box-shadow:0 10px 20px -6px rgba(0,0,0,.35);animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateZ(110px) rotate(4deg) translateY(-6px)}}
+.cv-bar{right:6%;bottom:13%;transform:translateZ(20px);width:54px;height:30px;background:repeating-linear-gradient(90deg,#fff 0 2px,transparent 2px 4px,#fff 4px 5px,transparent 5px 8px);opacity:.9}
+.cv-gl{inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.22) 48%,transparent 60%);background-size:250% 100%;background-position:var(--gx,60%) 0;transform:translateZ(120px);pointer-events:none}
+
+/* marquee */
+.mq{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:20px 0;background:var(--ink);color:var(--paper)}
+.mq .tr{display:inline-flex;gap:46px;animation:mq 40s linear infinite;font:300 italic clamp(22px,2.6vw,36px) var(--se)}
+.mq span:after{content:"✳";font-style:normal;color:var(--ac2);margin-left:46px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* transformation pinned */
+.tf{padding:clamp(100px,12vw,180px) 0 0}
+.tfg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,100px);margin-top:60px}
+.tl{list-style:none;counter-reset:t}
+.tl li{padding:clamp(60px,16vh,140px) 0;border-top:1px solid var(--line);opacity:.28;transition:opacity .6s var(--eui)}
+.tl li.on{opacity:1}
+.tl li .mono{color:var(--ac)}
+.tl h3{font:400 clamp(28px,3vw,48px)/1.05 var(--se);letter-spacing:-.03em;margin:10px 0 12px}
+.tl p{color:var(--mut);max-width:40ch}
+.phw{position:sticky;top:12vh;height:76vh;display:grid;place-items:center}
+.ph{width:min(330px,80%);aspect-ratio:9/19;border-radius:44px;background:#141210;padding:12px;box-shadow:0 60px 100px -50px rgba(20,18,16,.6)}
+.scr{width:100%;height:100%;border-radius:34px;overflow:hidden;background:#fff;position:relative;transition:background-color .8s var(--eui)}
+.ph[data-s="2"] .scr,.ph[data-s="3"] .scr,.ph[data-s="4"] .scr{background:#f7f3ec}
+.scr .top{height:30px;display:flex;justify-content:center;align-items:center}.scr .top i{width:80px;height:20px;border-radius:20px;background:#141210}
+.pf{padding:14px 16px}
+.pf .row{display:flex;gap:14px;align-items:center}
+.av{width:72px;height:72px;border-radius:50%;flex-shrink:0;background:#d8d8d8;transition:all .8s var(--eq);position:relative;overflow:hidden}
+.av:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 38%,#f4c7a8 0 18%,transparent 19%),radial-gradient(ellipse at 50% 105%,#141210 0 46%,transparent 47%);opacity:0;transition:opacity .8s}
+.ph[data-s="1"] .av,.ph[data-s="2"] .av,.ph[data-s="3"] .av,.ph[data-s="4"] .av{background:var(--ac)}
+.ph[data-s="1"] .av:after,.ph[data-s="2"] .av:after,.ph[data-s="3"] .av:after,.ph[data-s="4"] .av:after{opacity:1}
+.ph[data-s="2"] .av,.ph[data-s="3"] .av,.ph[data-s="4"] .av{box-shadow:0 0 0 3px #f7f3ec,0 0 0 5px var(--ac2)}
+.nums{display:flex;gap:14px;font-size:11px;color:#777;text-align:center}.nums b{display:block;font:600 15px var(--sa);color:#141210}
+.nm{font:600 15px var(--sa);margin-top:12px;transition:all .6s}
+.ph[data-s="2"] .nm,.ph[data-s="3"] .nm,.ph[data-s="4"] .nm{font:500 italic 22px/1 var(--se);color:var(--ac)}
+.bio{font-size:12.5px;color:#666;margin-top:4px;min-height:58px;line-height:1.4}
+.bio span{display:none}.ph[data-s="0"] .b0,.ph[data-s="1"] .b1,.ph[data-s="2"] .b2,.ph[data-s="3"] .b2,.ph[data-s="4"] .b4{display:block}
+.bio .b1,.bio .b2,.bio .b4{color:#141210;font-weight:500}
+.hl{display:flex;gap:10px;margin:12px 0;overflow:hidden}
+.hl i{width:52px;height:52px;border-radius:50%;flex-shrink:0;background:#e9e9e9;transition:background .8s var(--eui),box-shadow .8s}
+.ph[data-s="2"] .hl i,.ph[data-s="3"] .hl i,.ph[data-s="4"] .hl i{background:var(--lil);box-shadow:inset 0 0 0 2px #fff,0 0 0 1px var(--ac)}
+.ph[data-s="2"] .hl i:nth-child(2n),.ph[data-s="3"] .hl i:nth-child(2n),.ph[data-s="4"] .hl i:nth-child(2n){background:#ffd8c9}
+.cta{display:block;text-align:center;padding:9px;border-radius:10px;background:#efefef;font-size:12.5px;font-weight:600;transition:all .6s}
+.ph[data-s="4"] .cta{background:var(--ac);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:10px}
+.grid i{aspect-ratio:1;background:#eee;transition:background .8s var(--eui),transform .8s var(--eq);transition-delay:calc(var(--d)*60ms);display:grid;place-items:center;font:500 italic 15px var(--se);color:transparent}
+.ph[data-s="3"] .grid i,.ph[data-s="4"] .grid i{color:#fff}
+.ph[data-s="3"] .grid i:nth-child(3n+1),.ph[data-s="4"] .grid i:nth-child(3n+1){background:var(--ac)}
+.ph[data-s="3"] .grid i:nth-child(3n+2),.ph[data-s="4"] .grid i:nth-child(3n+2){background:#141210}
+.ph[data-s="3"] .grid i:nth-child(3n),.ph[data-s="4"] .grid i:nth-child(3n){background:var(--ac2)}
+.badge{position:absolute;left:50%;bottom:20px;transform:translate(-50%,30px);opacity:0;padding:10px 14px;border-radius:14px;background:#141210;color:#fff;font-size:12px;white-space:nowrap;display:flex;gap:8px;align-items:center;transition:opacity .6s var(--eo),transform .8s var(--eq);box-shadow:0 14px 30px -10px rgba(0,0,0,.5)}
+.badge b{color:var(--ac2)}
+.ph[data-s="4"] .badge{opacity:1;transform:translate(-50%,0)}
+
+/* program */
+.prg{padding:clamp(100px,12vw,180px) 0}
+.mods{margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.md{border-radius:24px;padding:28px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between;background:#fff;box-shadow:0 1px 0 var(--line);transition:transform .6s var(--eq),background-color .4s,color .4s}
+.md:hover{transform:translateY(-6px);background:var(--ink);color:var(--paper)}
+.md:hover p{color:#b8b0a3}
+.md .n{font:300 italic 64px/1 var(--se);color:var(--ac)}
+.md h3{font:500 26px/1.1 var(--se);letter-spacing:-.02em;margin:0 0 10px}
+.md p{color:var(--mut);font-size:14.5px;transition:color .4s}
+.md ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}.md li{font:500 11px var(--mono);padding:5px 9px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line)}
+
+/* cases coverflow */
+.cf{padding:0 0 clamp(100px,12vw,180px);overflow:hidden}
+.cfr{position:relative;height:500px;margin-top:40px;perspective:1600px}
+.cc{position:absolute;left:50%;top:0;width:340px;height:470px;margin-left:-170px;border-radius:24px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;transition:transform .9s var(--eq),opacity .6s,filter .6s;cursor:pointer;overflow:hidden}
+.cc:before{content:"";position:absolute;left:10%;right:10%;top:12%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.55) 1.3px,transparent 1.5px) 0 0/8px 8px;-webkit-mask:radial-gradient(circle at 35% 35%,#000 15%,transparent 72%);mask:radial-gradient(circle at 35% 35%,#000 15%,transparent 72%)}
+.cc>*{position:relative}
+.cc .mono{opacity:.85}
+.cc b{display:block;font:500 58px/1 var(--se);letter-spacing:-.04em}
+.cc p{font-size:14px;opacity:.9}
+.cfn{display:flex;gap:8px;justify-content:center;margin-top:24px}
+.cfn button{width:52px;height:52px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--ink);font-size:18px;transition:background-color .2s,color .2s}
+.cfn button:hover{background:var(--ink);color:var(--paper)}
+
+/* founder */
+.fo{background:var(--ink);color:var(--paper);padding:clamp(100px,12vw,170px) 0;position:relative;overflow:hidden}
+.fo .bgw{position:absolute;left:-2%;top:50%;transform:translateY(-50%);font:700 italic clamp(160px,26vw,420px)/1 var(--se);color:transparent;-webkit-text-stroke:1px rgba(244,239,230,.08);white-space:nowrap;pointer-events:none}
+.fg2{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,100px);align-items:center;position:relative}
+.port{aspect-ratio:.8;border-radius:28px;position:relative;overflow:hidden;background:linear-gradient(160deg,#2f3bff,#141210 75%)}
+.port:before{content:"";position:absolute;left:8%;right:8%;top:10%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(244,239,230,.75) 1.5px,transparent 1.7px) 0 0/10px 10px;-webkit-mask:radial-gradient(circle at 40% 35%,#000 18%,transparent 72%);mask:radial-gradient(circle at 40% 35%,#000 18%,transparent 72%)}
+.port:after{content:"О.";position:absolute;left:8%;bottom:4%;font:300 italic clamp(120px,14vw,220px)/1 var(--se);color:var(--ac2)}
+.fo blockquote{font:300 clamp(28px,3.4vw,52px)/1.1 var(--se);letter-spacing:-.02em}
+.fo blockquote em{color:var(--ac2)}
+.chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.chip{transform:skewX(-10deg);background:var(--paper);color:var(--ink);padding:12px 18px}
+.chip>span{display:block;transform:skewX(10deg)}.chip b{font:500 28px/1 var(--se)}.chip small{display:block;font-size:12px;color:var(--mut)}
+
+/* tariffs */
+.tr2{padding:clamp(100px,12vw,180px) 0}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:50px;align-items:stretch}
+.t{border-radius:28px;padding:30px;background:#fff;display:flex;flex-direction:column;gap:18px;box-shadow:0 1px 0 var(--line)}
+.t.best{background:var(--ac);color:#fff;transform:translateY(-14px)}
+.t h3{font:500 30px/1 var(--se)}
+.t .pr{font:500 46px/1 var(--se);letter-spacing:-.03em}.t .pr small{font:400 15px var(--sa);opacity:.7}
+.t ul{list-style:none;display:grid;gap:10px;font-size:15px}
+.t li:before{content:"✳ ";color:var(--ac2)}
+.t .btn{margin-top:auto;justify-content:space-between}
+.t.best .btn{background:#fff;color:var(--ac)}
+
+/* faq form */
+.end{padding:0 0 clamp(100px,12vw,180px)}
+.eg{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px)}
+details{border-bottom:1px solid var(--line)}details:first-of-type{border-top:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font:400 clamp(19px,1.6vw,24px) var(--se)}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font:300 28px/1 var(--sa);color:var(--ac);transition:transform .4s var(--eq)}
+details[open] summary:after{transform:rotate(45deg)}
+details p{color:var(--mut);padding:0 0 24px}
+.form{background:#fff;border-radius:28px;padding:clamp(24px,3vw,40px);display:grid;gap:12px;align-content:start;box-shadow:0 30px 60px -40px rgba(20,18,16,.35)}
+.form h3{font:400 clamp(26px,2.6vw,38px)/1.05 var(--se)}
+.form input{height:56px;border-radius:14px;border:0;background:var(--paper);padding:0 16px;font:500 16px var(--sa)}
+.form input:focus{outline:2px solid var(--ac)}
+.ok{display:none;padding:18px;border-radius:14px;background:var(--ac);color:#fff;font-weight:600}
+footer{padding:40px 0;border-top:1px solid var(--line)}
+.fbig{font:300 italic clamp(44px,9.5vw,170px)/.9 var(--se);letter-spacing:-.04em;margin-bottom:24px}
+.fr{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--mut);font-size:13px}
+
+.rv{opacity:0;transform:translateY(30px);transition:opacity 1.2s var(--eo),transform 1.2s var(--eo);transition-delay:calc(var(--i,0)*120ms)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:1000px){
+ .hero{grid-template-columns:1fr;padding-top:100px}.stage{width:min(360px,86%);order:-1;margin-top:10px}
+ .hd nav{display:none}.hd .in{justify-content:space-between}
+ .tfg{grid-template-columns:1fr}.phw{order:-1;position:sticky;top:76px;height:auto;z-index:2;padding:8px 0}.ph{width:170px;border-radius:28px;padding:7px}.scr{border-radius:22px}
+ .ph .pf{padding:8px;transform:scale(.52);transform-origin:top left;width:192%}
+ .tl li{padding:40px 0;background:var(--paper)}
+ .mods{grid-template-columns:1fr 1fr}.tg{grid-template-columns:1fr}.t.best{transform:none}
+ .fg2,.eg{grid-template-columns:1fr}.port{max-width:340px}
+ .stats{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){.mods{grid-template-columns:1fr}.cc{width:280px;margin-left:-140px;height:400px}.cfr{height:420px}.hd .btn{display:none}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv,.fd,.ln>span{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="in">
+ <a class="logo" href="#">Академия <i>экспертного</i> брендинга</a>
+ <nav><a href="#path">Путь</a><a href="#program">Программа</a><a href="#cases">Выпускники</a><a href="#price">Тарифы</a></nav>
+ <a class="btn a" href="#form">Диагностика бренда <span class="ar">→</span></a>
+</div></header>
+
+<main>
+<section class="hero">
+ <div>
+  <div class="mono k fd" style="transition-delay:.2s">Набор · поток зима 2026</div>
+  <h1 style="margin-top:18px"><span class="ln"><span>Из эксперта -</span></span><span class="ln"><span>в <span class="sw"><em>бренд</em></span>,</span></span><span class="ln"><span>который выбирают</span></span></h1>
+  <p class="fd">Позиционирование, упаковка, контент и медийность за 12 недель. Чтобы клиенты приходили к вам по имени, а не по цене.</p>
+  <div class="hacts fd"><a class="btn a" href="#form">Записаться на диагностику <span class="ar">→</span></a><a class="btn o" href="#path">Как это работает</a></div>
+  <div class="stats fd">
+   <div><b data-to="1800" data-suf="+">0</b><span>выпускников</span></div>
+   <div><b>×<i data-to="2.4" style="font-style:normal">0</i></b><span>средний рост чека</span></div>
+   <div><b data-to="12">0</b><span>недель программы</span></div>
+   <div><b data-to="87" data-suf="%">0</b><span>окупают за поток</span></div>
+  </div>
+ </div>
+ <div class="stage fd" style="transition-delay:.3s">
+  <div class="cover" id="cover">
+   <div class="cv-bg"></div>
+   <div class="cv-mast"><small><span>№ 01 · 2026</span><span>Выпуск о вас</span></small>ЭКСПЕРТ</div>
+   <div class="cv-por"></div><div class="cv-mono">А.М.</div>
+   <div class="cv-l l1"><b>Позиционирование</b>Как стать «тем самым» в своей нише</div>
+   <div class="cv-l l2"><b>Медийность</b>Первое интервью за 30 дней</div>
+   <div class="cv-l l3"><b>Продажи</b>Чек ×3 без выгорания</div>
+   <div class="cv-st">Ваше<br>имя<br>здесь</div>
+   <div class="cv-bar"></div>
+   <div class="cv-name">Анна Морозова</div>
+   <div class="cv-gl"></div>
+  </div>
+ </div>
+</section>
+
+<div class="mq" aria-hidden="true"><div class="tr"><span>Позиционирование</span><span>Упаковка</span><span>Контент</span><span>Медийность</span><span>Продажи</span><span>Позиционирование</span><span>Упаковка</span><span>Контент</span><span>Медийность</span><span>Продажи</span></div></div>
+
+<section class="tf" id="path">
+ <div class="w">
+  <div class="mono k rv">Путь за 12 недель</div>
+  <h2 class="h2 rv" style="--i:1;margin-top:18px;max-width:15ch">Смотрите, как меняется <em>профиль эксперта</em></h2>
+  <div class="tfg">
+   <ol class="tl">
+    <li class="on" data-s="0"><div class="mono">Старт</div><h3>Просто специалист</h3><p>Хороший психолог, юрист или нутрициолог - как сотни других. Клиенты сравнивают по цене.</p></li>
+    <li data-s="1"><div class="mono">Недели 1-3</div><h3>Позиционирование</h3><p>Находим нишу и обещание, которое отличает вас от всех. Одна фраза, после которой понятно, почему именно вы.</p></li>
+    <li data-s="2"><div class="mono">Недели 4-6</div><h3>Визуальная упаковка</h3><p>Фото, цвета, шрифты и шапка профиля в едином стиле. Эксперт начинает выглядеть дорого.</p></li>
+    <li data-s="3"><div class="mono">Недели 7-9</div><h3>Контент-система</h3><p>Рубрики, шаблоны и план на 3 месяца. Публикации работают на продажи, а не на лайки.</p></li>
+    <li data-s="4"><div class="mono">Недели 10-12</div><h3>Медийность и продажи</h3><p>Интервью, подкасты, выступления и воронка записи. Клиенты приходят по имени.</p></li>
+   </ol>
+   <div class="phw"><div class="ph" id="ph" data-s="0"><div class="scr">
+    <div class="top"><i></i></div>
+    <div class="pf">
+     <div class="row"><div class="av"></div><div class="nums"><div><b>48</b>посты</div><div><b id="fol">312</b>подписчики</div><div><b>90</b>подписки</div></div></div>
+     <div class="nm">anna.morozova</div>
+     <div class="bio"><span class="b0">Психолог. Консультации онлайн. Пишите в директ.</span><span class="b1">Психолог для предпринимателей: возвращаю энергию без отказа от бизнеса</span><span class="b2">Анна Морозова · Психолог для предпринимателей<br>Энергия без выгорания · 12 лет практики</span><span class="b4">Анна Морозова · Психолог для предпринимателей<br>Эксперт РБК и подкаста «Дело» · запись ↓</span></div>
+     <div class="hl"><i></i><i></i><i></i><i></i><i></i></div>
+     <span class="cta" id="cta">Написать</span>
+     <div class="grid"><i style="--d:1">Энергия</i><i style="--d:2">Кейс</i><i style="--d:3">Эфир</i><i style="--d:4">Миф</i><i style="--d:5">Чек-лист</i><i style="--d:6">Отзыв</i><i style="--d:7">Метод</i><i style="--d:8">Q&amp;A</i><i style="--d:9">Книга</i></div>
+    </div>
+    <div class="badge">Запись на консультацию · <b>45 000 ₽</b></div>
+   </div></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="prg" id="program">
+ <div class="w">
+  <div class="mono k rv">Программа</div>
+  <h2 class="h2 rv" style="--i:1;margin-top:18px">6 модулей <em>без воды</em></h2>
+  <div class="mods">
+   <article class="md rv"><div class="n">01</div><div><h3>Ниша и смыслы</h3><p>Распаковка опыта, аудитория, обещание бренда.</p><ul><li>2 недели</li><li>воркбук</li></ul></div></article>
+   <article class="md rv" style="--i:1"><div class="n">02</div><div><h3>Позиционирование</h3><p>Формула «я тот, кто…», легенда, тон голоса.</p><ul><li>разбор</li><li>куратор</li></ul></div></article>
+   <article class="md rv" style="--i:2"><div class="n">03</div><div><h3>Визуал бренда</h3><p>Фотосессия по ТЗ, палитра, шаблоны, шапки.</p><ul><li>гайд</li><li>шаблоны</li></ul></div></article>
+   <article class="md rv"><div class="n">04</div><div><h3>Контент</h3><p>Рубрикатор, сторителлинг, план на 90 дней.</p><ul><li>контент-план</li></ul></div></article>
+   <article class="md rv" style="--i:1"><div class="n">05</div><div><h3>Медийность</h3><p>Интервью, подкасты, конференции - как туда попасть.</p><ul><li>база СМИ</li><li>питч</li></ul></div></article>
+   <article class="md rv" style="--i:2"><div class="n">06</div><div><h3>Продукт и продажи</h3><p>Линейка, цены, воронка записи и диагностическая сессия.</p><ul><li>скрипты</li><li>воронка</li></ul></div></article>
+  </div>
+ </div>
+</section>
+
+<section class="cf" id="cases">
+ <div class="w"><div class="mono k rv">Выпускники</div><h2 class="h2 rv" style="--i:1;margin-top:18px">Результаты <em>в цифрах</em></h2></div>
+ <div class="cfr" id="cfr">
+  <article class="cc" style="background:linear-gradient(160deg,#2f3bff,#1b23b8)"><span class="mono">Психолог</span><div><b>×3</b><p>чек консультации: с 15 000 до 45 000 ₽</p></div></article>
+  <article class="cc" style="background:linear-gradient(160deg,#ff6b3d,#c63d16)"><span class="mono">Юрист</span><div><b>+18К</b><p>подписчиков и 2 эфира на федеральном ТВ</p></div></article>
+  <article class="cc" style="background:linear-gradient(160deg,#141210,#3a342c)"><span class="mono">Нутрициолог</span><div><b>4,2 млн</b><p>выручка запуска собственного курса</p></div></article>
+  <article class="cc" style="background:linear-gradient(160deg,#6c5cff,#2f3bff)"><span class="mono">Архитектор</span><div><b>12</b><p>заказов из личного бренда за квартал</p></div></article>
+  <article class="cc" style="background:linear-gradient(160deg,#c9a24a,#7a5c1e)"><span class="mono">Финансист</span><div><b>Топ-10</b><p>спикеров отраслевой конференции</p></div></article>
+ </div>
+ <div class="cfn"><button type="button" id="cprev" aria-label="Назад">←</button><button type="button" id="cnext" aria-label="Вперёд">→</button></div>
+</section>
+
+<section class="fo">
+ <div class="bgw" aria-hidden="true">бренд</div>
+ <div class="w fg2">
+  <div class="port rv" role="img" aria-label="Основатель академии"></div>
+  <div>
+   <div class="mono rv" style="color:var(--ac2)">Основатель академии</div>
+   <blockquote class="rv" style="--i:1;margin-top:20px">«Экспертов много. Выбирают тех, <em>кого запомнили</em>. Мы учим быть запоминающимися - честно и без кривляний.»</blockquote>
+   <div class="chips rv" style="--i:2">
+    <div class="chip"><span><b>15 лет</b><small>в брендинге</small></span></div>
+    <div class="chip"><span><b>1 800+</b><small>выпускников</small></span></div>
+    <div class="chip"><span><b>40+</b><small>выступлений</small></span></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="tr2" id="price">
+ <div class="w">
+  <div class="mono k rv">Тарифы</div>
+  <h2 class="h2 rv" style="--i:1;margin-top:18px">Выберите <em>формат</em></h2>
+  <div class="tg">
+   <article class="t rv"><h3>Самостоятельно</h3><div class="pr">49 000 ₽ <small>/ поток</small></div><ul><li>6 модулей и воркбуки</li><li>Шаблоны визуала и контента</li><li>Общий чат потока</li></ul><a class="btn o" href="#form">Выбрать <span class="ar">→</span></a></article>
+   <article class="t best rv" style="--i:1"><span class="mono">Популярный</span><h3>С куратором</h3><div class="pr">119 000 ₽ <small>/ поток</small></div><ul><li>Всё из тарифа «Самостоятельно»</li><li>Разборы домашних заданий</li><li>Фотосессия по ТЗ бренда</li><li>Питч в 3 медиа</li></ul><a class="btn" href="#form">Выбрать <span class="ar">→</span></a></article>
+   <article class="t rv" style="--i:2"><h3>Личное ведение</h3><div class="pr">от 290 000 ₽</div><ul><li>Работа один на один с основателем</li><li>Стратегия бренда под ключ</li><li>Медийное продвижение 3 месяца</li></ul><a class="btn o" href="#form">Обсудить <span class="ar">→</span></a></article>
+  </div>
+ </div>
+</section>
+
+<section class="end" id="form">
+ <div class="w eg">
+  <div>
+   <div class="mono k rv">Вопросы</div>
+   <h2 class="h2 rv" style="--i:1;margin:18px 0 36px">Частые <em>вопросы</em></h2>
+   <details class="rv"><summary>Подойдёт, если у меня мало подписчиков?</summary><p>Да. Бренд начинается со смыслов и упаковки - аудиторию растим уже на сильном фундаменте.</p></details>
+   <details class="rv"><summary>Сколько времени нужно в неделю?</summary><p>4-6 часов: один урок, одно практическое задание и разбор с куратором.</p></details>
+   <details class="rv"><summary>Есть рассрочка?</summary><p>Да, до 12 месяцев без переплаты от банков-партнёров.</p></details>
+   <details class="rv"><summary>Что, если не подойдёт?</summary><p>Вернём деньги в течение 14 дней после старта - без вопросов.</p></details>
+  </div>
+  <form class="form rv" style="--i:2" id="af">
+   <div class="mono k">Бесплатно · 40 минут</div>
+   <h3>Диагностика вашего бренда</h3>
+   <p style="color:var(--mut);font-size:14.5px">Разберём профиль, найдём главную точку роста и подберём формат обучения.</p>
+   <input type="text" placeholder="Имя" required aria-label="Имя">
+   <input type="text" placeholder="Ваша экспертиза" required aria-label="Экспертиза">
+   <input type="tel" placeholder="Телефон" required aria-label="Телефон">
+   <button class="btn a" type="submit" style="justify-content:space-between;height:58px">Записаться <span class="ar">→</span></button>
+   <div class="ok" id="ok">Готово! Напишем в течение дня и предложим время.</div>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer><div class="w">
+ <div class="fbig">Академия экспертного брендинга</div>
+ <div class="fr"><span>© 2026</span><span>Демо-концепция: цифры, имена и цены - примеры для оценки подачи</span></div>
+</div></footer>
+
+<script>
+(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,cl=(v,a,b)=>Math.min(b,Math.max(a,v)),$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+requestAnimationFrame(()=>document.body.classList.add('ready'));
+/* cover tilt */
+const cov=$('#cover'),hero=$('.hero');
+if(matchMedia('(pointer:fine)').matches&&!RM){hero.addEventListener('pointermove',e=>{const r=cov.getBoundingClientRect(),x=(e.clientX-(r.left+r.width/2))/innerWidth,y=(e.clientY-(r.top+r.height/2))/innerHeight;cov.style.setProperty('--ry',(-14+x*30)+'deg');cov.style.setProperty('--rx',(6-y*20)+'deg');cov.style.setProperty('--gx',(60-x*120)+'%')});
+ hero.addEventListener('pointerleave',()=>{cov.style.removeProperty('--ry');cov.style.removeProperty('--rx')})}
+/* counters */
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cio.unobserve(e.target);const el=e.target,to=+el.dataset.to,dec=(el.dataset.to.split('.')[1]||'').length,suf=el.dataset.suf||'',t1=performance.now(),D=RM?0:1700;
+ (function f(t){const q=Math.min(1,(t-t1)/(D||1)),v=to*(1-Math.pow(1-q,4));el.textContent=(dec?v.toFixed(dec).replace('.',','):Math.round(v).toLocaleString('ru-RU'))+suf;if(q<1)requestAnimationFrame(f)})(t1)}),{threshold:.5});
+$$('[data-to]').forEach(e=>cio.observe(e));
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -10% 0px'});$$('.rv').forEach(e=>io.observe(e));
+/* transformation */
+const ph=$('#ph'),lis=$$('.tl li'),fol=$('#fol'),cta=$('#cta'),FOL=['312','1 240','4 800','11 600','18 300'],CTA=['Написать','Написать','Записаться на сессию','Записаться на сессию','Записаться · 45 000 ₽'];let cs=-1;
+function step(){const mid=innerHeight*.5;let a=0;lis.forEach((l,i)=>{if(l.getBoundingClientRect().top<mid)a=i});if(a===cs)return;cs=a;lis.forEach((l,i)=>l.classList.toggle('on',i===a));ph.dataset.s=a;fol.textContent=FOL[a];cta.textContent=CTA[a]}
+/* coverflow */
+const cards=$$('.cc');let ci=1;
+function cf(){const n=cards.length,mob=innerWidth<700;cards.forEach((c,i)=>{let d=i-ci;if(d>n/2)d-=n;if(d<-n/2)d+=n;const ad=Math.abs(d);
+ c.style.transform=`translateX(${d*(mob?170:260)}px) translateZ(${-ad*160}px) rotateY(${-d*28}deg)`;c.style.opacity=ad>2?0:1-ad*.18;c.style.zIndex=10-ad;c.style.filter=ad?`brightness(${1-ad*.15})`:'none'})}
+cards.forEach((c,i)=>c.addEventListener('click',()=>{ci=i;cf()}));$('#cprev').onclick=()=>{ci=(ci-1+cards.length)%cards.length;cf()};$('#cnext').onclick=()=>{ci=(ci+1)%cards.length;cf()};cf();
+let sx=0;$('#cfr').addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});$('#cfr').addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){ci=(ci+(dx<0?1:-1)+cards.length)%cards.length;cf()}});
+addEventListener('resize',cf);
+/* form */
+$('#af').addEventListener('submit',e=>{e.preventDefault();$('#ok').style.display='block';e.target.querySelector('button').style.display='none'});
+/* header */
+const hd=$('.hd');let ly=0,tk=false;
+function upd(){tk=false;const y=scrollY;hd.classList.toggle('hide',y>ly&&y>600);ly=y;step()}
+addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});upd();
+})();
+</script>
+</body>
+</html>
